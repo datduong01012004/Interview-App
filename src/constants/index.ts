@@ -1,10 +1,10 @@
 import { Clock, Code2, Calendar, Users } from "lucide-react";
 
 export const INTERVIEW_CATEGORY = [
-  { id: "upcoming", title: "Upcoming Interviews", variant: "outline" },
-  { id: "completed", title: "Completed", variant: "secondary" },
-  { id: "succeeded", title: "Succeeded", variant: "default" },
-  { id: "failed", title: "Failed", variant: "destructive" },
+  { id: "upcoming", title: "Buổi phỏng vấn sắp tới", variant: "outline" },
+  { id: "completed", title: "Hoàn thành", variant: "secondary" },
+  { id: "succeeded", title: "Thành công", variant: "default" },
+  { id: "failed", title: "Thất bại", variant: "destructive" },
 ] as const;
 
 export const TIME_SLOTS = [

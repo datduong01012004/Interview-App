@@ -45,8 +45,8 @@ function MeetingCard({ interview }: { interview: Interview }) {
             {status === "live"
               ? "Live Now"
               : status === "upcoming"
-                ? "Upcoming"
-                : "Completed"}
+                ? "Sắp tới"
+                : "Hoàn thành"}
           </Badge>
         </div>
 
@@ -65,13 +65,13 @@ function MeetingCard({ interview }: { interview: Interview }) {
             className="w-full"
             onClick={() => joinMeeting(interview.streamCallId)}
           >
-            Join Meeting
+            Tham gia phỏng vấn
           </Button>
         )}
 
         {status === "upcoming" && (
           <Button variant="outline" className="w-full" disabled>
-            Waiting to Start
+            Đang chờ bắt đầu
           </Button>
         )}
       </CardContent>

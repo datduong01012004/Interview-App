@@ -76,22 +76,22 @@ function CommentDialog({ interviewId }: { interviewId: Id<"interviews"> }) {
       <DialogTrigger asChild>
         <Button variant="secondary" className="w-full">
           <MessageSquareIcon className="h-4 w-4 mr-2" />
-          Add Comment
+          Thêm đánh giá
         </Button>
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
-          <DialogTitle>Interview Comment</DialogTitle>
+          <DialogTitle>Đánh giá buổi phỏng vấn</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-6">
           {existingComments.length > 0 && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h4 className="text-sm font-medium">Previous Comments</h4>
+                <h4 className="text-sm font-medium">Đánh giá trước đó</h4>
                 <Badge variant="outline">
-                  {existingComments.length} Comment
+                  {existingComments.length} Đánh giá
                   {existingComments.length !== 1 ? "s" : ""}
                 </Badge>
               </div>
@@ -145,7 +145,7 @@ function CommentDialog({ interviewId }: { interviewId: Id<"interviews"> }) {
           <div className="space-y-4">
             {/* RATING */}
             <div className="space-y-2">
-              <Label>Rating</Label>
+              <Label>Đánh giá</Label>
               <Select value={rating} onValueChange={setRating}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select rating" />
@@ -164,11 +164,11 @@ function CommentDialog({ interviewId }: { interviewId: Id<"interviews"> }) {
 
             {/* COMMENT */}
             <div className="space-y-2">
-              <Label>Your Comment</Label>
+              <Label>Nhận xét của bạn</Label>
               <Textarea
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="Share your detailed comment about the candidate..."
+                placeholder="Chia sẻ nhận xét chi tiết của bạn về ứng viên..."
                 className="h-32"
               />
             </div>
@@ -178,9 +178,9 @@ function CommentDialog({ interviewId }: { interviewId: Id<"interviews"> }) {
         {/* BUTTONS */}
         <DialogFooter>
           <Button variant="outline" onClick={() => setIsOpen(false)}>
-            Cancel
+            Huỷ
           </Button>
-          <Button onClick={handleSubmit}>Submit</Button>
+          <Button onClick={handleSubmit}>Gửi</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

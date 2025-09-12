@@ -55,7 +55,7 @@ function DashboardPage() {
     <div className="container mx-auto py-10">
       <div className="flex items-center mb-8">
         <Link href="/schedule">
-          <Button>Schedule New Interview</Button>
+          <Button>Lên lịch phỏng vấn mới</Button>
         </Link>
       </div>
 

@@ -14,7 +14,7 @@ function DasboardBtn() {
     <Link href={"/dashboard"}>
       <Button className="gap-2 font-medium" size={"sm"}>
         <SparklesIcon className="size-4" />
-        Dashboard
+        Tổng quan
       </Button>
     </Link>
   );

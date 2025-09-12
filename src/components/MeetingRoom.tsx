@@ -79,10 +79,10 @@ function MeetingRoom() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                       <DropdownMenuItem onClick={() => setLayout("grid")}>
-                        Grid View
+                        Chế độ xem lưới
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => setLayout("speaker")}>
-                        Speaker View
+                        Chế độ xem loa
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>

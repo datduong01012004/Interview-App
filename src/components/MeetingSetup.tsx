@@ -32,7 +32,7 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
   if (!call) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <p className="text-muted-foreground">Joining call...</p>
+        <p className="text-muted-foreground">Đang tham gia...</p>
       </div>
     );
   }
@@ -51,7 +51,7 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
             <div>
               <h1 className="text-xl font-semibold mb-1">Camera Preview</h1>
               <p className="text-sm text-muted-foreground">
-                Make sure you look good!
+                Hãy đảm bảo bạn trông thật đẹp nhé!
               </p>
             </div>
 
@@ -69,7 +69,9 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
             <div className="h-full flex flex-col">
               {/* MEETING DETAILS  */}
               <div>
-                <h2 className="text-xl font-semibold mb-1">Meeting Details</h2>
+                <h2 className="text-xl font-semibold mb-1">
+                  Chi tiết buổi phỏng vấn
+                </h2>
                 <p className="text-sm text-muted-foreground break-all">
                   {call.id}
                 </p>
@@ -124,9 +126,9 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
                         <SettingsIcon className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <p className="font-medium">Settings</p>
+                        <p className="font-medium">Cài đặt</p>
                         <p className="text-sm text-muted-foreground">
-                          Configure devices
+                          Cấu hình thiết bị
                         </p>
                       </div>
                     </div>
@@ -137,11 +139,11 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
                 {/* JOIN BTN */}
                 <div className="space-y-3 mt-8">
                   <Button className="w-full" size="lg" onClick={handleJoin}>
-                    Join Meeting
+                    Tham gia
                   </Button>
                   <p className="text-xs text-center text-muted-foreground">
-                    Do not worry, our team is super friendly! We want you to
-                    succeed. 🎉
+                    Đừng lo lắng, đội ngũ của chúng tôi rất thân thiện! Chúng
+                    tôi mong bạn thành công. 🎉
                   </p>
                 </div>
               </div>

@@ -10,10 +10,10 @@ function RecordingCard({ recording }: { recording: CallRecording }) {
   const handleCopyLink = async () => {
     try {
       await navigator.clipboard.writeText(recording.url);
-      toast.success("Recording link copied to clipboard");
+      toast.success("Liên kết bản ghi đã được sao chép vào bộ nhớ tạm");
     } catch (error) {
       console.log(error);
-      toast.error("Failed to copy link to clipboard");
+      toast.error("Không thể sao chép liên kết vào bộ nhớ tạm");
     }
   };
 
@@ -62,7 +62,7 @@ function RecordingCard({ recording }: { recording: CallRecording }) {
           onClick={() => window.open(recording.url, "_blank")}
         >
           <PlayIcon className="size-4 mr-2" />
-          Play Recording
+          Phát bản ghi
         </Button>
         <Button variant="secondary" onClick={handleCopyLink}>
           <CopyIcon className="size-4" />

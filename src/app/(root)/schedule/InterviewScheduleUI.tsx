@@ -52,7 +52,7 @@ function InterviewScheduleUI() {
   const scheduleMeeting = async () => {
     if (!client || !user) return;
     if (!formData.candidateId || formData.interviewerIds.length === 0) {
-      toast.error("Please select both candidate and at least one interviewer");
+      toast.error("Vui lòng chọn ứng viên và ít nhất một người phỏng vấn");
       return;
     }
 
@@ -89,7 +89,7 @@ function InterviewScheduleUI() {
       });
 
       setOpen(false);
-      toast.success("Meeting scheduled successfully!");
+      toast.success("Lên lịch phỏng vấn thành công!");
 
       setFormData({
         title: "",
@@ -101,7 +101,7 @@ function InterviewScheduleUI() {
       });
     } catch (error) {
       console.error(error);
-      toast.error("Failed to schedule meeting. Please try again.");
+      toast.error("Không thể lên lịch buổi họp. Vui lòng thử lại.");
     } finally {
       setIsCreating(false);
     }
@@ -137,9 +137,9 @@ function InterviewScheduleUI() {
       <div className="flex items-center justify-between">
         {/* HEADER INFO */}
         <div>
-          <h1 className="text-3xl font-bold">Interviews</h1>
+          <h1 className="text-3xl font-bold">Phỏng vấn</h1>
           <p className="text-muted-foreground mt-1">
-            Schedule and manage interviews
+            Lên lịch và quản lý các buổi phỏng vấn
           </p>
         </div>
 
@@ -147,19 +147,19 @@ function InterviewScheduleUI() {
 
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
-            <Button size="lg">Schedule Interview</Button>
+            <Button size="lg">Lên lịch phỏng vấn</Button>
           </DialogTrigger>
 
           <DialogContent className="sm:max-w-[500px] h-[calc(100vh-200px)] overflow-auto">
             <DialogHeader>
-              <DialogTitle>Schedule Interview</DialogTitle>
+              <DialogTitle>Lên lịch phỏng vấn</DialogTitle>
             </DialogHeader>
             <div className="space-y-4 py-4">
               {/* INTERVIEW TITLE */}
               <div className="space-y-2">
-                <label className="text-sm font-medium">Title</label>
+                <label className="text-sm font-medium">Tiêu đề</label>
                 <Input
-                  placeholder="Interview title"
+                  placeholder="Tiêu đề buổi phỏng vấn"
                   value={formData.title}
                   onChange={(e) =>
                     setFormData({ ...formData, title: e.target.value })
@@ -169,9 +169,9 @@ function InterviewScheduleUI() {
 
               {/* INTERVIEW DESC */}
               <div className="space-y-2">
-                <label className="text-sm font-medium">Description</label>
+                <label className="text-sm font-medium">Mô tả</label>
                 <Textarea
-                  placeholder="Interview description"
+                  placeholder="Mô tả buổi phỏng vấn"
                   value={formData.description}
                   onChange={(e) =>
                     setFormData({ ...formData, description: e.target.value })
@@ -182,7 +182,7 @@ function InterviewScheduleUI() {
 
               {/* CANDIDATE */}
               <div className="space-y-2">
-                <label className="text-sm font-medium">Candidate</label>
+                <label className="text-sm font-medium">Ứng viên</label>
                 <Select
                   value={formData.candidateId}
                   onValueChange={(candidateId) =>
@@ -190,7 +190,7 @@ function InterviewScheduleUI() {
                   }
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select candidate" />
+                    <SelectValue placeholder="Chọn ứng viên" />
                   </SelectTrigger>
                   <SelectContent>
                     {candidates.map((candidate) => (
@@ -207,7 +207,7 @@ function InterviewScheduleUI() {
 
               {/* INTERVIEWERS */}
               <div className="space-y-2">
-                <label className="text-sm font-medium">Interviewers</label>
+                <label className="text-sm font-medium">Người phỏng vấn</label>
                 <div className="flex flex-wrap gap-2 mb-2">
                   {selectedInterviewers.map((interviewer) => (
                     <div
@@ -229,7 +229,7 @@ function InterviewScheduleUI() {
                 {availableInterviewers.length > 0 && (
                   <Select onValueChange={addInterviewer}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Add interviewer" />
+                      <SelectValue placeholder="Thêm người phỏng vấn" />
                     </SelectTrigger>
                     <SelectContent>
                       {availableInterviewers.map((interviewer) => (
@@ -249,7 +249,7 @@ function InterviewScheduleUI() {
               <div className="flex gap-4">
                 {/* CALENDAR */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Date</label>
+                  <label className="text-sm font-medium">Ngày</label>
                   <Calendar
                     mode="single"
                     selected={formData.date}
@@ -264,7 +264,7 @@ function InterviewScheduleUI() {
                 {/* TIME */}
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Time</label>
+                  <label className="text-sm font-medium">Thời gian</label>
                   <Select
                     value={formData.time}
                     onValueChange={(time) => setFormData({ ...formData, time })}
@@ -286,16 +286,16 @@ function InterviewScheduleUI() {
               {/* ACTION BUTTONS */}
               <div className="flex justify-end gap-3 pt-4">
                 <Button variant="outline" onClick={() => setOpen(false)}>
-                  Cancel
+                  Huỷ
                 </Button>
                 <Button onClick={scheduleMeeting} disabled={isCreating}>
                   {isCreating ? (
                     <>
                       <Loader2Icon className="mr-2 size-4 animate-spin" />
-                      Scheduling...
+                      Đang tạo...
                     </>
                   ) : (
-                    "Schedule Interview"
+                    "Tạo lịch phỏng vấn"
                   )}
                 </Button>
               </div>
@@ -319,7 +319,7 @@ function InterviewScheduleUI() {
         </div>
       ) : (
         <div className="text-center py-12 text-muted-foreground">
-          No interviews scheduled
+          Không có lịch phỏng vấn
         </div>
       )}
     </div>
