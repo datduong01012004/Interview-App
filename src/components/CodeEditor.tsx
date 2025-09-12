@@ -221,56 +221,65 @@ function CodeEditor() {
 
       {/* CODE EDITOR */}
       <ResizablePanel defaultSize={60} maxSize={100}>
-        <div className="h-full relative flex flex-col">
+        <ResizablePanelGroup direction="vertical">
           {/* CODE EDITOR */}
-          <div className="flex-1 relative">
-            <Editor
-              height="100%"
-              defaultLanguage={language}
-              language={language}
-              theme="vs-dark"
-              value={code}
-              onChange={(value) => setCode(value || "")}
-              options={{
-                minimap: { enabled: false },
-                fontSize: 18,
-                lineNumbers: "on",
-                scrollBeyondLastLine: false,
-                automaticLayout: true,
-                padding: { top: 16, bottom: 16 },
-                wordWrap: "on",
-                wrappingIndent: "indent",
-              }}
-            />
-            <div className="absolute top-2 right-4 z-10">
-              <Button
-                onClick={handleRunCode}
-                disabled={isRunning}
-                className="gap-2"
-              >
-                {isRunning ? (
-                  <>
-                    <Loader2 className="animate-spin h-4 w-4" />
-                    Running...
-                  </>
-                ) : (
-                  <>
-                    <PlayIcon className="h-4 w-4" />
-                    Run Code
-                  </>
-                )}
-              </Button>
+          <ResizablePanel defaultSize={70}>
+            <div className="h-full relative">
+              <Editor
+                height="100%"
+                language={language}
+                theme="vs-dark"
+                value={code}
+                onChange={(value) => setCode(value || "")}
+                options={{
+                  minimap: { enabled: false },
+                  fontSize: 18,
+                  lineNumbers: "on",
+                  scrollBeyondLastLine: false,
+                  automaticLayout: true,
+                  padding: { top: 16, bottom: 16 },
+                  wordWrap: "on",
+                  wrappingIndent: "indent",
+                }}
+              />
+              <div className="absolute top-2 right-4 z-10">
+                <Button
+                  onClick={handleRunCode}
+                  disabled={isRunning}
+                  className="gap-2"
+                >
+                  {isRunning ? (
+                    <>
+                      <Loader2 className="animate-spin h-4 w-4" />
+                      Đang chạy...
+                    </>
+                  ) : (
+                    <>
+                      <PlayIcon className="h-4 w-4" />
+                      Chạy Code
+                    </>
+                  )}
+                </Button>
+              </div>
             </div>
-          </div>
+          </ResizablePanel>
 
-          {/* ✅ OUTPUT HIỂN THỊ RÕ RÀNG */}
-          {output && (
-            <div className="bg-black text-white p-4 font-mono text-sm border-t border-gray-700 max-h-[300px] overflow-auto">
+          {/* Thanh kéo giữa Code Editor và Output */}
+          <ResizableHandle withHandle />
+
+          {/* OUTPUT */}
+          <ResizablePanel defaultSize={30} minSize={10} maxSize={50}>
+            <div
+              className="bg-black text-white p-4 font-mono text-base border-t border-gray-700 
+                      w-full h-full overflow-auto"
+            >
               <strong className="text-green-400">Output:</strong>
-              <pre className="whitespace-pre-wrap mt-1">{output}</pre>
+              <pre className="whitespace-pre-wrap mt-2">
+                {output || "Chưa có kết quả"}
+              </pre>
             </div>
-          )}
-        </div>
+          </ResizablePanel>
+        </ResizablePanelGroup>
       </ResizablePanel>
     </ResizablePanelGroup>
   );

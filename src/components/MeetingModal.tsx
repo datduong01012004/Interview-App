@@ -43,7 +43,7 @@ function MeetingModal({
         <div className="space-y-4 pt-4">
           {isJoinMeeting && (
             <Input
-              placeholder="Paste meeting link here..."
+              placeholder="Dán liên kết vào đây..."
               value={meetingUrl}
               onChange={(e) => setMeetingUrl(e.target.value)}
             />
@@ -51,13 +51,13 @@ function MeetingModal({
 
           <div className="flex justify-end gap-3">
             <Button variant="outline" onClick={onClose}>
-              Cancel
+              Huỷ
             </Button>
             <Button
               onClick={handleStart}
               disabled={isJoinMeeting && !meetingUrl.trim()}
             >
-              {isJoinMeeting ? "Join Meeting" : "Start Meeting"}
+              {isJoinMeeting ? "Tham gia" : "Bắt đầu"}
             </Button>
           </div>
         </div>

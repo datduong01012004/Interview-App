@@ -42,12 +42,12 @@ export default function Home() {
       {/* WELCOME SECTION */}
       <div className="rounded-lg bg-card p-6 border shadow-sm mb-10">
         <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">
-          Welcome back!
+          Chào mừng trở lại!
         </h1>
         <p className="text-muted-foreground mt-2">
           {isInterviewer
-            ? "Manage your interviews and review candidates effectively"
-            : "Access your upcoming interviews and preparations"}
+            ? "Quản lý các buổi phỏng vấn và đánh giá ứng viên một cách hiệu quả"
+            : "Truy cập các buổi phỏng vấn sắp tới của bạn"}
         </p>
       </div>
 
@@ -66,16 +66,18 @@ export default function Home() {
           <MeetingModal
             isOpen={showModal}
             onClose={() => setShowModal(false)}
-            title={modalType === "join" ? "Join Meeting" : "Start Meeting"}
+            title={
+              modalType === "join" ? "Tham gia buổi họp" : "Bắt đầu buổi họp"
+            }
             isJoinMeeting={modalType === "join"}
           />
         </>
       ) : (
         <>
           <div>
-            <h1 className="text-3xl font-bold">Your Interviews</h1>
+            <h1 className="text-3xl font-bold">Các buổi phỏng vấn của bạn</h1>
             <p className="text-muted-foreground mt-1">
-              View and join your scheduled interviews
+              Xem và tham gia các buổi phỏng vấn theo lịch trình của bạn
             </p>
           </div>
 
@@ -92,7 +94,7 @@ export default function Home() {
               </div>
             ) : (
               <div className="text-center py-12 text-muted-foreground">
-                You have no scheduled interviews at the moment
+                Hiện tại bạn không có lịch phỏng vấn nào
               </div>
             )}
           </div>

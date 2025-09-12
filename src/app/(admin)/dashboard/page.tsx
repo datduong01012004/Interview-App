@@ -40,10 +40,10 @@ function DashboardPage() {
   ) => {
     try {
       await updateStatus({ id: interviewId, status });
-      toast.success(`Interview marked as ${status}`);
+      toast.success(`Buổi phỏng vấn được đánh giá ${status}`);
     } catch (error) {
       console.log(error);
-      toast.error("Failed to update status");
+      toast.error("Không cập nhật được trạng thái");
     }
   };
 
